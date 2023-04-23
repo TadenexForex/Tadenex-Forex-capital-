@@ -1,5 +1,7 @@
 # Tadenex-Forex-capital-
-from flask import Flask, render_template, request, redirect, url_for
+<html>
+<Head>
+fromm flask import Flask, render_template, request, redirect, url_for
 import pandas as pd
 import numpy as np
 
