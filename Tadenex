@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tadenex Forex Capital - Login</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <h1>Login to Tadenex Forex Capital</h1>
+    <form action="login.php" method="POST">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required><br><br>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required><br><br>
+      <input type="submit" value="Login">
+    </form>
+  </body>
+</html>
+<?php
+// Start the session
+session_start();
+
+// Check if the form was submitted
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+  // Get the username and password from the form data
+  $username = $_POST['username'];
+  $password = $_POST['password'];
+
+  // Validate the username and password
+  if ($username == 'your_username_here' && $password == 'your_password_here') {
+    // Successful login
+    $_SESSION['username'] = $username;
+    header('Location: dashboard.php');
+    exit;
+  } else {
+    // Failed login
+    $error_message = 'Invalid username or password';
+  }
+}
+?>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tadenex Forex Capital - Login</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <h1>Login to Tadenex Forex Capital</h1>
+    <?php if (isset($error_message)): ?>
+      <p><?php echo $error_message; ?></p>
+    <?php endif; ?>
+    <form action="login.php" method="POST">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required><br><br>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required><br><br>
+      <input type="submit" value="Login">
+    </form>
+  </body>
+</html>
